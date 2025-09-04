@@ -1,8 +1,8 @@
 :root {
-  --primary-color: rgb(0, 0, 0, 0.95);
+  --primary-color: #141414; /* solid color, no alpha */
   --button-color: red;
-  --text-color: rgba(245, 245, 220);
-  --hover-color: rgba(255, 0, 0, 0.85);
+  --text-color: beige;
+  --hover-color: #e53935;
 }
 body {
   background-color: var(--primary-color);
@@ -22,7 +22,7 @@ h5 {
 }
 h1,
 h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Mozilla Text", serif;
 }
 .header {
   padding: 0.6rem;
@@ -44,15 +44,21 @@ h2 {
   cursor: pointer;
   padding: 0;
   z-index: 100;
+  outline: none;
+}
+.hamburger:hover,
+.hamburger:focus,
+.hamburger:active {
+  background: transparent;
+  outline: none;
 }
 .hamburger-bar {
   display: block;
   height: 3px;
   width: 100%;
-  background-color: red;
+  background-color: var(--button-color);
   transition: all 0.3s ease;
 }
-/* Removed hover effects from hamburger */
 .logo {
   position: absolute;
   left: 50%;
@@ -62,7 +68,7 @@ h2 {
   z-index: 99;
 }
 #logo-name {
-  color: orangered;
+  color: #ff5722;
 }
 .nav-bar {
   position: fixed;
@@ -81,7 +87,6 @@ h2 {
   cursor: pointer;
   transition: all 0.2s ease;
 }
-/* Simple hover effect for nav items */
 .nav-item:hover {
   color: var(--hover-color);
 }
@@ -125,7 +130,6 @@ h2 {
     padding: 0.5rem;
     border-bottom: none;
   }
-  /* Desktop hover effect for nav items */
   .nav-item:hover {
     color: var(--hover-color);
   }
@@ -188,12 +192,11 @@ button {
   border-radius: 10px;
   background-color: var(--button-color);
   text-align: center;
-  color: whitesmoke;
+  color: #fff;
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
 }
-/* Simple button hover effect */
 button:hover {
   background-color: var(--hover-color);
 }
@@ -248,9 +251,9 @@ button:hover {
   margin: auto;
 }
 .skill-list {
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
-  margin: auto;
   gap: 20px;
   padding: 10px;
   justify-content: center;
@@ -258,17 +261,17 @@ button:hover {
   margin-bottom: 50px;
 }
 .skill-item {
-  padding: 10px;
-  border: 1px solid rgba(255, 68, 0, 0.8);
+  padding: 6px;
+  border: 1px solid #ff5722;
   text-align: center;
   border-radius: 5px;
-  min-width: 90px;
+  min-width: 70px;
+  font-size: 0.95rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
-/* Simple skill item hover effect */
 .skill-item:hover {
-  background-color: rgba(255, 68, 0, 0.1);
+  background-color: rgba(255, 87, 34, 0.1);
 }
 .skills img {
   max-width: 50px;
@@ -279,47 +282,101 @@ button:hover {
   margin: auto;
   margin-bottom: 50px;
 }
+
 .project-list {
   margin: auto;
   border-radius: 5px;
   width: 90%;
 }
+
 .project-item {
   display: flex;
   flex-direction: column;
   gap: 30px;
   padding: 10px;
-  border: 1px solid rgba(255, 68, 0, 0.6);
+  border: 1px solid #ff5722;
   border-radius: 10px;
   text-align: center;
-  margin: 10px;
+  margin: 10px 20px;
+  width: 90%;
 }
+
 .project-left {
   margin: auto;
   text-align: center;
+  width: 100%;
+  overflow: hidden;
 }
+
 .project-right {
   margin: auto;
 }
-.project-list img {
-  max-width: 250px;
-}
-.project-right button {
+a.link-button {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--button-color);
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
   margin-top: 10px;
 }
-/* Simple hover effect for project buttons */
+a.link-button:hover {
+  background-color: var(--hover-color);
+}
+a.link-button:hover {
+  background: var(--hover-color);
+}
+
+.project-left img {
+  width: 100%;
+  height: 150px;
+  max-width: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.project-right button {
+  margin-top: 10px;
+  text-decoration: none;
+  background-color: var(--button-color);
+}
+
 .project-button button:hover {
   background-color: var(--hover-color);
 }
+
 @media (min-width: 980px) {
+
+  .skill-item {
+    font-size: 1.1rem;
+    min-width: 85px;
+    padding: 10px;
+  }
+
   .project-item {
     flex-direction: row;
     text-align: left;
   }
-  .project-list img {
-    max-width: 300px;
+
+  .project-left {
+    flex: 0 0 250px;
+    width: 250px;
+    height: 150px;
   }
+
+  .project-left img {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .project-right {
+    flex: 1;
     padding: 10px;
   }
 }
@@ -345,7 +402,7 @@ button:hover {
   width: 2px;
   top: 0;
   bottom: 0;
-  background-color: orangered;
+  background-color: #ff5722;
 }
 .edu-item {
   border-radius: 5px;
@@ -360,8 +417,8 @@ button:hover {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: lightseagreen;
-  border: 3px solid tomato;
+  background: #20b2aa;
+  border: 3px solid #ff6347;
 }
 
 .contact-container {
@@ -376,58 +433,104 @@ button:hover {
   margin: auto;
   border-radius: 10px;
   padding: 10px;
+  align-items: center;
+  justify-content: center;
 }
+.contact-content {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact-right {
+  text-align: center;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 98%;
+  max-width: 500px;
+  margin: auto;
+}
+
+#sender_name,
+#sender_email,
+#sender_message {
+  width: 80%;
+  border-radius: 5px;
+  min-height: 35px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-family: inherit;
+}
+
+.contact-left {
+  margin: auto;
+}
+
 @media (min-width: 980px) {
   .contact-content {
     flex-direction: row;
     justify-content: space-around;
   }
+
+  .contact-right {
+    text-align: center;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+  }
+
+  #contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: auto;
+  }
+
+  #sender_name,
+  #sender_email,
+  #sender_message {
+    width: 60%;
+    border-radius: 5px;
+    min-height: 35px;
+    background-color: lightgrey;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-family: inherit;
+  }
+
+  .contact-left {
+    position: relative;
+    top: 40%;
+    transform: translateY(-40%);
+  }
 }
-.contact-left {
-  padding-top: 4%;
-}
-.contact-right {
-  text-align: center;
-  width: 60%;
-  margin: auto;
-}
-#contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: auto;
-}
-#sender_name,
-#sender_email,
-#sender_message {
-  min-width: 70%;
-  border-radius: 5px;
-  min-height: 35px;
-  background-color: lightgrey;
-  border: 1px solid #ccc;
-  padding: 8px;
-  font-family: inherit;
-}
+
 #sender_message {
   height: 70px;
   resize: vertical;
 }
-#form-status {
-  margin-top: 10px;
-  padding: 8px;
-  border-radius: 4px;
-  text-align: center;
+
+.success {
+  color: #43a047;
+  margin: 10px 0;
 }
-@media (min-width: 980px) {
-  #sender_name,
-  #sender_email,
-  #sender_message {
-    min-width: 50%;
-  }
-  .contact-left {
-    margin-left: 100px;
-  }
+
+.error {
+  color: #e53935;
+  margin: 10px 0;
 }
+
 footer {
   text-align: center;
   padding: 5px;

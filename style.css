@@ -57,7 +57,7 @@ h2 {
   display: block;
   height: 3px;
   width: 100%;
-  background-color: var(--button-color);
+  background-color: red;
   transition: all 0.3s ease;
 }
 .logo {
@@ -69,7 +69,7 @@ h2 {
   z-index: 99;
 }
 #logo-name {
-  color: #ff5722;
+  color: orangered;
 }
 .nav-bar {
   position: fixed;
@@ -103,36 +103,37 @@ h2 {
 .hamburger.active .hamburger-bar:nth-child(3) {
   transform: translateY(-8.5px) rotate(-45deg);
 }
-
-.header-contents {
-  width: 60%;
-  margin: auto;
-  text-align: center;
-}
-.hamburger {
-  display: none;
-}
-.logo {
-  position: static;
-  transform: none;
-  margin-right: auto;
-}
-.nav-bar {
-  position: static;
-  width: auto;
-  height: auto;
-  padding: 0;
-  justify-content: space-around;
-  background: transparent;
-  display: flex;
-  gap: 1.5rem;
-}
-.nav-item {
-  padding: 0.5rem;
-  border-bottom: none;
-}
-.nav-item:hover {
-  color: var(--hover-color);
+@media (min-width: 980px) {
+  .header-contents {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+  }
+  .hamburger {
+    display: none;
+  }
+  .logo {
+    position: static;
+    transform: none;
+    margin-right: auto;
+  }
+  .nav-bar {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    justify-content: space-around;
+    background: transparent;
+    display: flex;
+    gap: 1.5rem;
+  }
+  .nav-item {
+    padding: 0.5rem;
+    border-bottom: none;
+  }
+  .nav-item:hover {
+    color: var(--hover-color);
+  }
 }
 
 .intro {

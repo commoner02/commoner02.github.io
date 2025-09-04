@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #141414; /* solid color, no alpha */
+  --primary-color: #141414;
   --button-color: red;
   --text-color: beige;
   --hover-color: #e53935;
@@ -10,7 +10,7 @@ body {
   padding: 0;
   color: var(--text-color);
   font-family: "Mozilla Text", sans-serif;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   scroll-behavior: smooth;
 }
 h1,
@@ -19,6 +19,7 @@ h3,
 h4,
 h5 {
   margin: 0.5rem 0;
+  font-size: 0.95rem;
 }
 h1,
 h2 {
@@ -102,37 +103,36 @@ h2 {
 .hamburger.active .hamburger-bar:nth-child(3) {
   transform: translateY(-8.5px) rotate(-45deg);
 }
-@media (min-width: 980px) {
-  .header-contents {
-    width: 60%;
-    margin: auto;
-    text-align: center;
-  }
-  .hamburger {
-    display: none;
-  }
-  .logo {
-    position: static;
-    transform: none;
-    margin-right: auto;
-  }
-  .nav-bar {
-    position: static;
-    width: auto;
-    height: auto;
-    padding: 0;
-    justify-content: space-around;
-    background: transparent;
-    display: flex;
-    gap: 1.5rem;
-  }
-  .nav-item {
-    padding: 0.5rem;
-    border-bottom: none;
-  }
-  .nav-item:hover {
-    color: var(--hover-color);
-  }
+
+.header-contents {
+  width: 60%;
+  margin: auto;
+  text-align: center;
+}
+.hamburger {
+  display: none;
+}
+.logo {
+  position: static;
+  transform: none;
+  margin-right: auto;
+}
+.nav-bar {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  justify-content: space-around;
+  background: transparent;
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-item {
+  padding: 0.5rem;
+  border-bottom: none;
+}
+.nav-item:hover {
+  color: var(--hover-color);
 }
 
 .intro {
@@ -350,7 +350,6 @@ a.link-button:hover {
 }
 
 @media (min-width: 980px) {
-
   .skill-item {
     font-size: 1.1rem;
     min-width: 85px;
@@ -423,32 +422,27 @@ a.link-button:hover {
 
 .contact-container {
   width: 60%;
-  height: auto;
   margin: auto;
 }
+
 .contact-content {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  margin: auto;
   border-radius: 10px;
-  padding: 10px;
-  align-items: center;
-  justify-content: center;
-  padding-left: 20px;
-}
-.contact-content {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 10px 20px;
 }
 
 .contact-right {
+  width: 100%;
   text-align: center;
   margin: auto;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
 }
 
 #contact-form {
@@ -466,14 +460,33 @@ a.link-button:hover {
   width: 80%;
   border-radius: 5px;
   min-height: 35px;
-  background-color: grey;
-  border: 1px solid #ccc;
+  background-color: #222;
+  border: 1px solid #444;
   padding: 8px;
   font-family: inherit;
+  transition: border 0.2s;
+}
+
+#sender_name::placeholder,
+#sender_email::placeholder,
+#sender_message::placeholder {
+  font-size: small;
+}
+
+#sender_name:focus,
+#sender_email:focus,
+#sender_message:focus {
+  outline: none;
+  border: 1.5px solid var(--text-color);
 }
 
 .contact-left {
   margin-left: 30px;
+}
+
+#sender_message {
+  height: 70px;
+  resize: vertical;
 }
 
 @media (min-width: 980px) {
@@ -483,31 +496,19 @@ a.link-button:hover {
   }
 
   .contact-right {
-    text-align: center;
-    margin: auto;
-    align-items: center;
-    justify-content: center;
     width: 60%;
     padding: 30px;
   }
 
   #contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: auto;
+    width: 100%;
+    max-width: 500px;
   }
 
   #sender_name,
   #sender_email,
   #sender_message {
     width: 60%;
-    border-radius: 5px;
-    min-height: 35px;
-    background-color: grey;
-    border: 1px solid #ccc;
-    padding: 8px;
-    font-family: inherit;
   }
 
   .contact-left {
@@ -515,11 +516,6 @@ a.link-button:hover {
     top: 40%;
     transform: translateY(-40%);
   }
-}
-
-#sender_message {
-  height: 70px;
-  resize: vertical;
 }
 
 .success {
@@ -533,8 +529,37 @@ a.link-button:hover {
 }
 
 footer {
+  max-width: 60%;
   text-align: center;
   padding: 5px;
-  margin-left: 0;
-  margin-block-end: 0;
+  width: 100%;
+  font-size: 0.95rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 980px) {
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  button,
+  .nav-item,
+  .skill-item,
+  .project-item,
+  input,
+  textarea,
+  footer,
+  .intro-text,
+  .project-right,
+  .project-left,
+  .contact-content,
+  .contact-right,
+  .contact-left,
+  .edu-container,
+  .edu-contents,
+  .edu-item {
+    font-size: 1.1rem;
+  }
 }
